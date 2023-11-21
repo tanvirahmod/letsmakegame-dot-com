@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="/../richtexteditor/rte_theme_default.css"/>
+    <script type="text/javascript" src="/../richtexteditor/rte.js"></script>
+    <script type="text/javascript" src='/../richtexteditor/plugins/all_plugins.js'></script>
+    <meta charset="utf-8">
+    <title></title>
+    <%- include('../partials/style-admin.css'); %>
+    <script src=""></script>
+  </head>
+  <body>
+    <div class="area">
+      <h1>ExpressJS & knexJS CRUD System.</h1>
+      <form class="" action="/admin/edit/published/<%- id %>?_method=PUT" method="post">
+        <input class="slug_submit" type="slug" name="slug" placeholder="Type URL........" value="<%- getall.url %>" required>
+        <input type="title" name="title" value="<%- getall.title %>" required>
+        <input class="tag_submit" type="tag" name="tag" placeholder="Type category........" value="<%- getall.tag %>" required>
+        <input class="tagall_submit" type="tagall" name="tagall" placeholder="Type tags........" value="<%- getall.tagall %>" required>
+        <input class="desc_submit" type="desc" name="desc" placeholder="Type Description........" value="<%- getall.desc %>"  required>
+        <input class="author" type="author" name="author" placeholder="Author........" value="<%- getall.author %>" required>
+        <select value="<%- getall.published %>" name="published" id="published">
+          <option>Publish</option>
+          <option>Draft</option>
+        </select>
+        <input class="created_submit" type="created" name="created" placeholder="Type created........" value="<%- getall.created %>"  required>
+        <input class="updated_submit" type="updated" name="updated" placeholder="updated........" value="<%- getall.updated %>" required>
+        <textarea id="inp_editor2" name="content" rows="8" cols="80" required><%- getall.content %>
+          
+        </textarea>
+        <input class="button" type="submit" name="submit" id="" value="UPDATE">
+      </form>
+    </div>
+
+    <script>
+      var editor1 = new RichTextEditor("#inp_editor2");
+    </script>
+  </body>
+</html>

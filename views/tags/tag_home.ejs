@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tags | blog.sobdartho.com</title>
+    <meta name="keyword" content="Tags | blog.sobdartho.com" />
+    <meta name="description" content="Tags | blog.sobdartho.com">
+    
+    <meta property="og:title" content="Tags | blog.sobdartho.com | blog.sobdartho.com" />
+    <meta property="og:url" content="https://blog.sobdartho.com/tag" />
+    <meta property="og:description" content="Tags | blog.sobdartho.com" />
+    <meta property="og:site_name" content="blog.sobdartho.com" />
+   <%- include('../partials/head.ejs'); %>
+   <%- include('../partials/css.ejs'); %>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            <div class="home-page-header-title">
+                Search for solutions.
+              </div>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" placeholder="Type Word...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+
+        <!--meaning output section-->
+        <div class="main" style="width: 100%; padding:60px 50px; box-sizing: border-box;">
+
+
+            <div class="othersite outputs">
+                <h2> Each and every category of our site are mentioned here.</h2>
+                <br>
+                <p>Some Resources in below links</p>
+      
+
+            </div>
+
+
+
+
+            <!-- below main dev ends -->
+        </div>
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

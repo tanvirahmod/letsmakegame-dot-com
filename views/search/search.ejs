@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include('../partials/head.ejs'); %>
+
+    <title>Search Results for <%- word %> | blog.sobdartho.com</title>
+    <meta name="keyword" content="<%- word %>" />
+    <meta name="description" content="This page provide every search results about <%- word %>.">
+    
+    <meta property="og:title" content="Search Results for <%- word %> | blog.sobdartho.com" />
+    <meta property="og:url" content="https://blog.sobdartho.com/search/<%- word %>?page=1" />
+    <meta property="og:description" content="This page provide every search results about <%- word %>." />
+    <meta property="og:site_name" content="blog.sobdartho.com" />
+
+   
+   <%- include('../partials/css.ejs'); %>
+
+
+    <style type="text/css">
+
+        .pagination {
+            width: 100%;
+            height: auto;
+            margin-top: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: rgb(196, 196, 196);
+        }
+
+
+          </style>
+
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            
+            <div class="home-page-header-title">
+                Search for a query
+              </div>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" value="<%= word.replace(/-/g, ' ') %>" placeholder="Type...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+
+
+        
+
+
+
+
+        <!--meaning output section-->
+        <div class="main" style="width: 100%; padding:60px 50px; box-sizing: border-box;">
+
+            
+            <div id="related_links" class="outputs">
+
+                <h4>Search Results for "<%- word %>"</h4>
+
+                <% for (let element of info.data) {%>
+                        <br>
+                        <%- `<a class="links" href="/${element.tag}/${element.url}">${element.title}</a> <br>` %>
+                <% } %>
+
+
+
+                <div class="pagination">
+                    <% if(prev > 0){%>
+                        <div class="numbers">
+                            <%- `<a href="/search/${word}?page=${prev}">Previous</a> <br>` %>
+                        </div>
+                    <% } %>
+                    <% if(next < 10){%>
+                        <div id="goforward" class="numbers">
+                            <%- `<a href="/search/${word}?page=${next}">Next</a> <br>` %>
+                        </div>
+                    <% } %>
+
+
+                </div>
+
+            </div>
+
+            <!-- below main dev ends -->
+        </div>
+
+
+
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script>
+        let info22 = document.querySelectorAll(".links");
+        if (info22.length > 9){
+            document.getElementById("goforward").style.display = "block"; 
+        }else{
+            document.getElementById("goforward").style.display = "none"; 
+        }
+    </script>  
+
+
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
+

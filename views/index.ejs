@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sobdartho Blog | Bangladesh Education Related News and Circulars.</title>
+    <meta name="description" content="This is the main blog sectoin of Sobdartho.com where we publish Education Related News and Circulars.">
+    <link rel="canonical" href="https://blog.sobdartho.com" />
+    <%- include('./partials/head.ejs'); %>
+    <%- include('./partials/css.ejs'); %>
+</head>
+
+
+<body>
+    <%- include('partials/header_nav.ejs'); %>
+
+        <div class="area">
+            <div class="word-search">
+                <div class="home-page-header-title">
+                    Sobdartho Blog
+                </div>
+                <form method="get" action="">
+                    <label>
+                        <input type="text" name="query" id="query" placeholder="Search">
+                    </label>
+                    <button>Search</button>
+                </form>
+            </div>
+
+
+            <!--meaning output section-->
+            <div class="main">
+
+                <div class="othersite outputs">
+                    <h2>Sobdartho Blog | Bangladesh Education Related News and Circulars.</h2>
+                    <p>Welcome to Sobdartho Blog, your go-to source for comprehensive and up-to-date information on the latest educational developments in Bangladesh. We are dedicated to keeping students informed about crucial events that shape their academic journey.</p><p>At Sobdartho Blog, we bring you timely updates on examination routines, admission circulars, and exam results from various educational boards and institutions across Bangladesh. Our mission is to empower students with the knowledge they need to make informed decisions about their education.</p><p>Navigate through our user-friendly platform to access reliable and relevant content tailored for Bangladeshi students. Whether you're looking for the latest exam schedules, admission guidelines, or eagerly awaiting your exam results, we've got you covered.</p><p>Stay ahead in your educational pursuits with Sobdartho Blog, where we strive to be your one-stop hub for all things related to Bangladeshi education. Join us in shaping a brighter future for students across the nation through timely and accurate information.</p><p>Education is the key to unlocking limitless possibilities, and at Sobdartho Blog, we are committed to providing you with the keys to success. Explore, learn, and stay informed with us on your educational journey.</p>
+                        <br>
+                    <p>Some Resources in below links
+                    <p><a href="/category/routine" class="active one">NU Routine</a><br>
+                        <a href="/category/circular" class="active two">NU Circular</a><br>
+                        <br>
+                    <p>We're on a mission to bring you the best word knowledge around! Our team is dedicated to thorough research, ensuring that you get accurate insights into each information we explore.</p>
+
+                </div>
+
+                <!-- below main dev ends -->
+            </div>
+
+
+            <aside>
+                <div class="box">
+                    <div class="head">
+                        <h3>Tags</h3>
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li> <a href="/tag/result?page=1">Results</a> </li>
+                            <li> <a href="/tag/routine?page=1">Routines</a> </li>
+                            <li> <a href="/tag/circular?page=1">Circulars</a> </li>
+                         </ul>
+                    </div>
+                </div>
+            </aside>
+
+
+
+
+            <%- include('partials/footer.ejs'); %>
+
+
+
+
+        </div>
+
+
+        <script type="text/javascript">
+            function toggle() {
+                var test = document.getElementById("navbar");
+                if (test.className == "hidden") {
+                    test.className = "show";
+                } else {
+                    test.className = "hidden";
+                }
+            }
+
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+</body>
+
+</html>

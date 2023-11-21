@@ -1,0 +1,932 @@
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: "basic-sans", sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* body {
+        background-color: #eaeaea;
+    } */
+
+
+
+    body table {
+        border: 1;
+        border-collapse: collapse;
+        margin: 5px 0px;
+    }
+
+    body table * {
+
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    body code{
+        color: #069 !important;
+    }
+    /* Header CSS with Navbar*/
+    header {
+        height: 60px;
+        width: 100%;
+        background-color: #212F3D;
+        position: relative;
+    }
+
+    header .header-area {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    header .logo {
+        float: left;
+
+    }
+
+    header .search-bar form {
+        float: left;
+        height: 60px;
+        width: 35%;
+        margin-left: 50px;
+        line-height: 60px;
+        /* border: 1px solid red; */
+    }
+
+    header .search-bar form input {
+        width: 80%;
+        box-sizing: border-box;
+        padding: 10px;
+        height: 40px;
+        border: none;
+        border-radius: 2px;
+        float: left;
+        transform: translateY(25%);
+    }
+
+    header .search-bar form button {
+        float: left;
+        border: none;
+        height: 40px;
+        padding: 10px;
+        font-weight: bold;
+        transform: translateY(25%);
+        background-color: white;
+        cursor: pointer;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+
+    }
+
+    header .logoHead {
+        line-height: 60px;
+        text-align: center;
+
+    }
+
+    header .logoHead a {
+        color: #d0d3d4;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    nav {
+        height: 60px;
+        float: right;
+    }
+
+    .show {
+        display: block;
+    }
+
+    nav p {
+        color: white;
+        font-weight: bold;
+        line-height: 60px;
+        text-align: center;
+        cursor: pointer;
+        display: none;
+    }
+
+    nav ul {
+        text-align: center;
+        line-height: 60px;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    nav ul li a:hover {
+        background-color: white;
+        color: black;
+    }
+
+    nav ul li a {
+        padding: 22px;
+        text-decoration: none;
+        color: #D0D3D4;
+        font-weight: bold;
+    }
+
+
+
+
+
+    /* Keeping everything center */
+
+    .area {
+        max-width: 1100px;
+        margin: 0px auto;
+        color: #2d3436;
+        /*-webkit-box-shadow: -19px 21px 17px -24px rgba(0,0,0,0.75);
+-moz-box-shadow: -19px 21px 17px -24px rgba(0,0,0,0.75);
+box-shadow: -19px 21px 17px -24px rgba(0,0,0,0.75);*/
+    }
+
+    /* Result area */
+    .area .word-search {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 30px;
+        min-height: 110px;
+        background-color: #f7f7f7;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .area .word-search .home-page-header-title,
+    .area .word-search h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .area .word-search input {
+        padding: 10px;
+        font-size: 18px;
+        margin: 15px 5px;
+        font-weight: bold;
+        border: none;
+        outline: 1px solid black;
+    }
+
+
+
+    .area .word-search button {
+        padding: 10px;
+        font-size: 18px;
+        margin: 15px 5px;
+        font-weight: bold;
+        background-color: #283747;
+        color: white;
+    }
+
+    /* meaning output area */
+
+
+    .main {
+        background-color: white;
+        width: 71%;
+        float: left;
+        padding: 0px 15px 15px 15px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    blockquote {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 5%;
+        margin-right: 40px;
+        border-left: 7px solid grey;
+        padding-left: 10px;
+        padding-bottom: 7px;
+
+    }
+
+    /*sidebar section*/
+    aside {
+        float: right;
+        width: 28%;
+        margin-bottom: 10px;
+        height: 100%;
+    }
+
+    aside .toc-head{
+        position: sticky;
+        top: 0;
+    }
+    aside .head {
+        height: 60px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #283747;
+        color: #D0D3D4;
+        margin-top: 20px;
+    }
+
+    aside .content {
+        box-sizing: border-box;
+        padding: 20px;
+        background-color: #f7f7f7;
+    }
+
+    aside .content li {
+        list-style: none;
+        padding-bottom: 20px;
+    }
+
+    aside .content a {
+        text-decoration: none;
+        line-height: 20px;
+
+    }
+
+
+    /* responsive nav button */
+    @media only screen and (max-width: 1200px) {
+        
+        aside .box{
+            height: auto !important;
+        }
+        header .logoHead a {
+            font-size: 22px;
+        }
+
+        nav p {
+            display: block;
+        }
+
+        nav ul {
+            display: none;
+            background-color: #34495E;
+            z-index: 999;
+            position: absolute;
+            margin-top: 2px;
+        }
+        nav ul a{
+            font-size: small;
+        }
+        nav ul li {
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .main {
+            width: 100%;
+            float: none;
+        }
+
+
+        aside {
+            float: none;
+            width: 100%;
+
+        }
+
+    }
+
+
+
+
+
+
+    @media only screen and (max-width: 750px) {
+
+        form {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .area .word-search input {
+            padding: 15px;
+            font-size: 16px;
+            /*margin: 10px 2px;*/
+            font-weight: bold;
+            border: none;
+            outline: 1px solid black;
+            width: 80%;
+        }
+
+        .area .word-search button {
+            padding: 9px;
+            font-size: 16px;
+            /*margin: 10px 2px;*/
+            font-weight: bold;
+            width: 30%;
+        }
+
+        nav .button {
+            width: 70px;
+        }
+
+        nav ul {
+            width: 100px;
+            z-index: 999;
+            margin-top: 2px;
+            right: 10px;
+            position: absolute;
+
+        }
+
+        nav ul li a {
+            font-size: small;
+            padding: 10px;
+        }
+
+        nav p {
+            font-size: small;
+        }
+
+
+        header .header-area {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        header .logo {
+            float: left;
+
+
+        }
+
+        header .search-bar {
+
+            width: 45%;
+            float: left;
+        }
+
+        header .search-bar form {
+            float: left;
+            height: 60px;
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        header .search-bar form label {
+            width: 80%;
+            margin-left: 10px;
+        }
+
+        header .search-bar form input {
+            width: 100%;
+        }
+
+        header .logo a {
+            font-size: medium;
+        }
+
+    }
+
+
+
+
+    /* Others and sidebar */
+
+
+    /* Dashboard */
+
+    .dashboard-form {
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+
+    .dashboard-form input[type=text],
+    textarea {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .dashboard-form button {
+        background-color: #283747;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: left;
+
+    }
+
+    /* footer */
+    footer {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        color: white;
+        list-style: none;
+
+    }
+
+    footer .footer-box {
+        width: 50%;
+        height: 250px;
+        background-color: #283747;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    footer .footer-box div {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    footer li {
+        list-style: none;
+
+    }
+
+    footer .footer-box li a {
+        font-size: 15px;
+        line-height: 30px;
+    }
+
+    footer .footer-box a,
+    footer .footer-box h3 {
+        text-decoration: none;
+    }
+
+    footer .copyright {
+        width: 100%;
+        text-align: center;
+        line-height: 90px;
+        height: 90px;
+        background-color: #212F3D;
+    }
+
+    .footer-box a,
+    .copyright a {
+        color: white;
+    }
+
+    body .post-navigation {
+        background-color: #F7CBCB;
+        padding: 22px;
+        width: auto;
+    }
+
+    body .post-navigation .nav-title {
+        font-size: large;
+        font-weight: bold;
+        padding-bottom: 10px;
+        letter-spacing: 2px;
+    }
+
+    body .post-navigation a {
+        text-decoration: none;
+        list-style-type: none;
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    body .breadcrumb {
+        line-height: 50px;
+        background-color: white;
+        margin-bottom: 10px;
+        margin-top: -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    /* style for richText blog post */
+    /* TODO: use @import for your css */
+
+
+    .main h1,
+    .main h2,
+    .main h3,
+    .main h4,
+    .main h5 {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+
+    .main h1 {
+        font-size: 250%;
+    }
+
+    .main h2 {
+        font-size: 200%;
+    }
+
+    .main h3 {
+        font-size: 160%;
+    }
+
+    .main h4 {
+        font-size: 130%;
+        font-weight: bold;
+    }
+
+
+
+    .main img {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .main ol,
+    .main ul {
+        margin-left: 33px;
+    }
+
+    .main p {
+        line-height: 30px;
+        padding-top: 10px 0px;
+        margin-top: 13px;
+        font-size: calc(17px + (16 - 15) * ((100vw - 300px) / (1600 - 300)));
+    }
+
+    a {
+        color: #3740ff;
+        text-decoration: none;
+        -webkit-transition: color 0.2s ease 0s, text-decoration 0.2s ease 0s;
+        -moz-transition: color 0.2s ease 0s, text-decoration 0.2s ease 0s;
+        -o-transition: color 0.2s ease 0s, text-decoration 0.2s ease 0s;
+        transition: color 0.2s ease 0s, text-decoration 0.2s ease 0s;
+    }
+
+    ::selection {
+        background: #b5d6fd;
+        color: #000030;
+    }
+
+    /*RTE_DefaultConfig.items_InlineClasses*/
+    .my-cls-mark {
+        background-color: yellow;
+        font-weight: bold;
+    }
+
+    .my-cls-warning {
+        background-color: orange;
+        color: white;
+        font-weight: bold;
+    }
+
+    /*RTE_DefaultConfig.items_ParagraphClasses*/
+    .my-cls-quote {
+        margin: 10px;
+        padding-left: 10px;
+        border-left: dashed 1px red;
+        font-style: italic;
+    }
+
+    .my-cls-largecenter {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    [__rte_selected_hover__] {
+        background-color: #b5d6fd;
+    }
+
+    [__rte_selected_cell] {
+        background-color: #b5d6fd;
+    }
+
+    [__rte_selected_hover] {
+        background: #b5d6fd;
+        color: #000;
+    }
+
+    .rte-toggleborder [__rte_selected_block] {
+        /*box-shadow: 0 0 0 0.5px #377dff;*/
+        /*not work well for FireFox*/
+        /*border-radius: 1px;*/
+        /*outline: 0.5px solid #377dff99;*/
+        border-right: solid 1px #377dff;
+    }
+
+    .rte-toggleborder blockquote[__rte_selected_block] {
+        /*box-shadow: 0 0 0 0.5px #377dff;*/
+        /*not work well for FireFox*/
+        /*border-radius: 1px;*/
+        outline: none;
+    }
+
+    .rte-toggleborder td[__rte_selected_block] {
+        box-shadow: none !important;
+    }
+
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+
+    table:not([width]) {
+        width: 100%;
+    }
+
+    table[border="0"] td,
+    table:not([border]) td,
+    table[border="0"] th,
+    table:not([border]) th {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    thead {
+        background-color: #eee;
+    }
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th,
+    .table>tfoot>tr>td,
+    .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .table>thead>tr>th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+
+    video-container {
+        position: relative
+    }
+
+    video-container:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: rgba(128, 128, 128, 0.2);
+    }
+
+    blockquote {
+        border-left: 3px solid #ddd;
+        margin: 15px 0 15px 15px;
+    }
+
+    blockquote p {
+        line-height: 15px !important;
+    }
+
+
+    img {
+        cursor: default;
+    }
+
+
+
+
+    .dp-highlighter {
+        font-family: "Consolas", "Courier New", Courier, mono, serif;
+        font-size: 16px;
+        background-color: #E7E5DC;
+        width: 99%;
+        overflow: auto;
+        margin: 18px 0 18px 0 !important;
+        padding-top: 1px;
+        /* adds a little border on top when controls are hidden */
+
+    }
+
+    /* clear styles */
+    .dp-highlighter ol,
+    .dp-highlighter ol li,
+    .dp-highlighter ol li span {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    .dp-highlighter a,
+    .dp-highlighter a:hover {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dp-highlighter .bar {
+        padding-left: 45px;
+    }
+
+    .dp-highlighter.collapsed .bar,
+    .dp-highlighter.nogutter .bar {
+        padding-left: 0px;
+    }
+
+    .dp-highlighter ol {
+        list-style: decimal;
+        /* for ie */
+        background-color: #fff;
+        margin: 0px 0px 1px 45px !important;
+        /* 1px bottom margin seems to fix occasional Firefox scrolling */
+        padding: 0px;
+        color: #5C5C5C;
+    }
+
+
+    .dp-highlighter.nogutter ol,
+    .dp-highlighter.nogutter ol li {
+        list-style: none !important;
+        margin-left: 0px !important;
+    }
+
+    .dp-highlighter ol li,
+    .dp-highlighter .columns div {
+        list-style: decimal-leading-zero;
+        /* better look for others, override cascade from OL */
+        list-style-position: outside !important;
+        border-left: 3px solid #6CE26C;
+        background-color: #F8F8F8;
+        color: #5C5C5C;
+        padding: 0 3px 0 10px !important;
+        margin: 0 !important;
+    }
+
+    .dp-highlighter.nogutter ol li,
+    .dp-highlighter.nogutter .columns div {
+        border: 0;
+    }
+
+    .dp-highlighter .columns {
+        background-color: #F8F8F8;
+        color: gray;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .dp-highlighter .columns div {
+        padding-bottom: 5px;
+    }
+
+    .dp-highlighter ol li.alt {
+        background-color: #FFF;
+        color: inherit;
+    }
+
+    .dp-highlighter ol li span {
+        color: black;
+        background-color: inherit;
+    }
+
+    /* Adjust some properties when collapsed */
+
+    .dp-highlighter.collapsed ol {
+        margin: 0px;
+    }
+
+    .dp-highlighter.collapsed ol li {
+        display: none;
+    }
+
+    /* Additional modifications when in print-view */
+
+    .dp-highlighter.printing {
+        border: none;
+    }
+
+    .dp-highlighter.printing .tools {
+        display: none !important;
+    }
+
+    .dp-highlighter.printing li {
+        display: list-item !important;
+    }
+
+    /* Styles for the tools */
+
+    .dp-highlighter .tools {
+        padding: 3px 8px 3px 10px;
+        font: 9px Verdana, Geneva, Arial, Helvetica, sans-serif;
+        color: silver;
+        background-color: #f8f8f8;
+        padding-bottom: 10px;
+        border-left: 3px solid #6CE26C;
+    }
+
+    .dp-highlighter.nogutter .tools {
+        border-left: 0;
+    }
+
+    .dp-highlighter.collapsed .tools {
+        border-bottom: 0;
+    }
+
+    .dp-highlighter .tools a {
+        font-size: 9px;
+        color: #a0a0a0;
+        background-color: inherit;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+    .dp-highlighter .tools a:hover {
+        color: red;
+        background-color: inherit;
+        text-decoration: underline;
+    }
+
+    /* About dialog styles */
+
+    .dp-about {
+        background-color: #fff;
+        color: #333;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .dp-about table {
+        width: 100%;
+        height: 100%;
+        font-size: 11px;
+        font-family: Tahoma, Verdana, Arial, sans-serif !important;
+    }
+
+    .dp-about td {
+        padding: 10px;
+        vertical-align: top;
+    }
+
+    .dp-about .copy {
+        border-bottom: 1px solid #ACA899;
+        height: 95%;
+    }
+
+    .dp-about .title {
+        color: red;
+        background-color: inherit;
+        font-weight: bold;
+    }
+
+    .dp-about .para {
+        margin: 0 0 4px 0;
+    }
+
+    .dp-about .footer {
+        background-color: #ECEADB;
+        color: #333;
+        border-top: 1px solid #fff;
+        text-align: right;
+    }
+
+    .dp-about .close {
+        font-size: 11px;
+        font-family: Tahoma, Verdana, Arial, sans-serif !important;
+        background-color: #ECEADB;
+        color: #333;
+        width: 60px;
+        height: 22px;
+    }
+
+    /* Language specific styles */
+
+    .dp-highlighter .comment,
+    .dp-highlighter .comments {
+        color: #6e6e6e;
+        background-color: inherit;
+    }
+
+    .dp-highlighter .string {
+        color: blue;
+        background-color: inherit;
+    }
+
+    .dp-highlighter .keyword {
+        color: #069;
+        font-weight: bold;
+        background-color: inherit;
+    }
+
+    .dp-highlighter .preprocessor {
+        color: gray;
+        background-color: inherit;
+    }
+</style>

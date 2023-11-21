@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>404 Not Found | wordexplained</title>
+    <meta name="description" content="404 Not Found | wordexplained">
+    <%- include('../partials/head.ejs'); %>
+    <%- include('../partials/css.ejs'); %>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            <h2>Not Found Any Query | 404 Error.</h2>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" placeholder="Type Word...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+
+        <!-- <div class="main">
+
+
+
+
+        </div> -->
+
+
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

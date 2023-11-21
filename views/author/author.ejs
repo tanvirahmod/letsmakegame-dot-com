@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tanvir - Author | wordexplained</title>
+    <meta name="description" content="Adam | User">
+   <%- include('../partials/head.ejs'); %>
+   <%- include('../partials/css.ejs'); %>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+<br>
+    <div class="area">
+
+        <div class="main" style="width: 100%; padding:60px 50px; box-sizing: border-box;">
+            <center>
+                <div class="user-info">
+                    <img style="border-radius: 200px;" alt="author photo" src="/author.jpg" width="200">
+                    <br>
+                    <br>
+                    <h3>tanvir</h3>
+                    <p>a Software Engineer</p>
+                    <br>
+                    <br>
+                    <p class="info">i am a software engineer with more than 8 years of software engineering programming experience with Python, JavaScript, PHP, C, C# and i am have interest in REST architecture, microservices, and cloud computing. </p>
+                    <br>
+                    <h4>Social Links</h4>
+                    <p><a target="_blank" href="https://twitter.com/MuhammodT">Twitter</a></p>
+                </div>
+            </center>
+            <br>
+            <br>
+            <br>
+            <h2>My Writings are Below:</h2>
+
+
+            <div id="related_links" class="outputs">
+                <% for ( let element of allData ) {%>
+                        <br>
+                        <%- `<a class="links" href="/${element.tag}/${element.url}">${element.title}</a> <br>` %>
+                <% } %>
+
+
+                <br><br>
+                <div style="display: flex; justify-content: space-around;" class="pagination">
+
+                    <% if(prev > 0){%>
+                        <div class="numbers">
+                            <%- `<a href="/author/tanvir?page=${prev}">Previous</a> <br>` %>
+                        </div>
+                    <% } %>
+                    <% if(next < 10){%>
+                        <div id="goforward" class="numbers">
+                            <%- `<a href="/author/tanvir?page=${next}">Next</a> <br>` %>
+                        </div>
+                    <% } %>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <%- include('../partials/footer.ejs'); %>
+
+    </div>
+
+
+    <script>
+        let info22 = document.querySelectorAll(".links");
+        if (info22.length > 9){
+            document.getElementById("goforward").style.display = "block"; 
+        }else{
+            document.getElementById("goforward").style.display = "none"; 
+        }
+    </script>  
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Category page of <%- word.replace("-"," ").replace("-"," ").replace("-"," ") %> | blog.sobdartho.com</title>
+    <meta name="keyword" content='<%- word.replace("-"," ").replace("-"," ").replace("-"," ") %>' />
+    <meta name="description" content='This page is the category page of <%- word.replace("-"," ").replace("-"," ").replace("-"," ") %>.'>
+    
+    <meta property="og:title" content="Everything About <%- word.replace("-"," ").replace("-"," ").replace("-"," ") %> | blog.sobdartho.com" />
+    <meta property="og:url" content='https://blog.sobdartho.com/category/<%- word %>' />
+    <meta property="og:description" content='This page is the category page of <%- word.replace("-"," ").replace("-"," ").replace("-"," ") %>.' />
+    <meta property="og:site_name" content="blog.sobdartho.com" />
+   <%- include('../partials/head.ejs'); %>
+   <%- include('../partials/css.ejs'); %>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+
+    <div class="area">
+        <div class="word-search">
+            <div class="home-page-header-title">
+                Search for solutions.
+              </div>
+            <form method="get" action="">
+                <label>
+                    <input type="text" name="query" id="query" placeholder="Type Word...">
+                </label>
+                <button>Search</button>
+            </form>
+        </div>
+
+
+        <!--meaning output section-->
+        <div class="main" style="width: 100%; padding:60px 50px; box-sizing: border-box;">
+            <center>
+                <div class="software-info">
+
+                    <p>This is category page of <%= word %>.<br>
+                    Every article about <%= word %> is available here.
+                    </p>
+
+                </div>
+            </center>
+            <br>
+            <br>
+            <br>
+            <h2>Articles about <%- word.replace("-"," ").replace("-"," ").replace("-"," ") %> are Below:</h2>
+
+
+            <div id="related_links" class="outputs">
+
+                <% for (let element of info.data) {%>
+                        <br>
+                        <%- `<a class="links" href="/${element.tag}/${element.url}">${element.title}</a> <br>` %>
+                <% } %>
+
+
+                <br><br>
+                <div style="display: flex; justify-content: space-around;" class="pagination">
+                    <% if(prev > 0){%>
+                        <div class="numbers">
+                            <%- `<a href="/category/${word}?page=${prev}">Previous</a> <br>` %>
+                        </div>
+                    <% } %>
+                    <% if(next < 3){%>
+                        <div class="numbers">
+                            <%- `<a href="/category/${word}?page=${next}">Next</a> <br>` %>
+                        </div>
+                    <% } %>
+                    <% if(!next){%>
+                        <br><br><br>
+                        <div class="numbers">
+                            <%- `<a href="/category/${word}?page=2">Next</a> <br>` %>
+                        </div>
+                    <% } %>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <%- include('../partials/footer.ejs'); %>
+
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        function toggle() {
+            var test = document.getElementById("navbar");
+            if (test.className == "hidden") {
+                test.className = "show";
+            } else {
+                test.className = "hidden";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

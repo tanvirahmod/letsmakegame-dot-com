@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sobdartho Blog | Contact</title>
+    <meta name="description" content="Sobdartho Blog | Contact">
+    <link rel="canonical" href="https://blog.sobdartho.com/contact" />
+    <%- include('../partials/head.ejs'); %>
+    <%- include('../partials/css.ejs'); %>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box;}
+        
+        input[type=text], select, textarea {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-top: 6px;
+          margin-bottom: 16px;
+          resize: vertical;
+        }
+        
+        input[type=submit] {
+          background-color: #04AA6D;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        
+        .container {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+
+        @media only screen and (max-width: 750px) {
+
+          body {font-family: Arial, Helvetica, sans-serif;}
+        * {box-sizing: border-box !important;}
+        form{
+          display: block;
+        }
+         }
+
+
+        </style>
+</head>
+
+
+<body>
+    <%- include('../partials/header_nav.ejs'); %>
+<br>
+<br>
+<br>
+        <div class="area">
+            <!--meaning output section-->
+            <br>
+            <div class="main">
+
+                <div class="othersite outputs">
+                    <h3>Contact Form</h3>
+
+                    <div class="container">
+                      <form action="/action_page.php">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                    
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                    
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                          <option value="Bangladesh">Bangladesh</option>
+                          <option value="India">India</option>
+                          <option value="USA">USA</option>
+                        </select>
+                    
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                    
+                        <input type="submit" value="Submit">
+                      </form>
+                    </div>
+
+                </div>
+
+
+
+                <!-- Bonous Section -->
+
+
+
+                <!-- below main dev ends -->
+            </div>
+
+
+            <aside>
+
+            </aside>
+
+
+
+
+            <%- include('../partials/footer.ejs'); %>
+
+
+
+
+        </div>
+
+
+        <script type="text/javascript">
+            function toggle() {
+                var test = document.getElementById("navbar");
+                if (test.className == "hidden") {
+                    test.className = "show";
+                } else {
+                    test.className = "hidden";
+                }
+            }
+
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+</body>
+
+</html>
