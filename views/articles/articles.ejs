@@ -5,23 +5,23 @@
 
     <%- include('../partials/head.ejs'); %>
         <title>
-            <%= info.title %> | blog.sobdartho.com
+            <%= info.title %> | letsmakegame.com
         </title>
         <meta name="keyword" content="<%= info.title %> " />
         <meta name="description" content="<%= info.desc %>">
 
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="<%= info.title %> | blog.sobdartho.com" />
-        <meta property="og:url" content="https://blog.sobdartho.com/<%- info.tag %>/<%- info.url %>" />
+        <meta property="og:title" content="<%= info.title %> | letsmakegame.com" />
+        <meta property="og:url" content="https://letsmakegame.com/<%- info.tag %>/<%- info.url %>" />
         <meta property="og:description" content="'<%= info.title %>' everything explaind here about this." />
-        <meta property="og:site_name" content="Sobdartho Blog" />
-        <meta property="og:image" content="https://blog.sobdartho.com/og-image.jpg" />
-        <meta property="twitter:image" content="https://blog.sobdartho.com/og-image.jpg" />
+        <meta property="og:site_name" content="letsmakegame.com" />
+        <meta property="og:image" content="https://letsmakegame.com/og-image.jpg" />
+        <meta property="twitter:image" content="https://letsmakegame.com/og-image.jpg" />
         <meta property="article:section" content="<%- info.tag %>" />
         <!-- <meta property="article:published_time" content="2022-05-05T22:05:45+00:00" /> -->
 
-        <link rel="canonical" href="https://blog.sobdartho.com/<%- info.tag %>/<%- info.url %>">
+        <link rel="canonical" href="https://letsmakegame.com/<%- info.tag %>/<%- info.url %>">
 
         <%- include('../partials/css.ejs'); %>
 
@@ -31,17 +31,17 @@
               "@type": "Article",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://blog.sobdartho.com/<%- info.tag %>/<%- info.url %>"
+                "@id": "https://letsmakegame.com/<%- info.tag %>/<%- info.url %>"
               },
               "headline": "<%= info.title %>",
               "description": "<%= info.desc %>",
               "author": {
                 "@type": "Organization",
-                "name": "Sobdartho"
+                "name": "Letsmakegame"
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "sobdartho",
+                "name": "letsmakegame",
                 "logo": {
                     "@type": "ImageObject",
                     "url": "",
@@ -80,7 +80,7 @@
                     <meta content="2" itemprop="position">
                     <a href="/category/<%- info.tag %>" itemprop="item" title="<%- info.tag %>">
                         <span itemprop="name">
-                            <%- info.tag.replace("-"," ").replace(" -"," ") %></span>
+                            <%- info.tag.replace("-"," ").replace(" -"," ").replace("-"," ") %></span>
                             </a>
                             </span>
                             
@@ -108,9 +108,9 @@
                 <div class=" tag-author">
                     <a style="background-color: #3740ff; border: 1px solid rgb(29, 29, 29); color:rgb(255, 255, 255); padding: 5px;"
                         href="/category/<%- info.tag %>">
-                        <%- info.tag.replace("-"," ").replace(" -"," ") %></a>
+                        <%- info.tag.replace("-"," ").replace("-"," ") %></a>
                     <a style=" background-color: #f7f7f7; border: 1px solid rgb(29, 29, 29);color:black; padding: 5px;"
-                            href="#"> Author: Sobdartho </a>
+                            href="#"> Author: Tanvir </a>
                     <span style=" margin-left: 10px;" class="cr-up">
                         <span style="border: 1px solid grey; padding:5px;" class="created">
                             <%= info.updated %>
@@ -154,9 +154,9 @@
 
                 <div class="content">
                     <ul>
-                        <li> <a href="/tag/result?page=1">Results</a> </li>
-                        <li> <a href="/tag/routine?page=1">Routines</a> </li>
-                        <li> <a href="/tag/circular?page=1">Circulars</a> </li>
+                        <li> <a href="/tag/2d?page=1">2d</a> </li>
+                        <li> <a href="/tag/godot4?page=1">Godot 4.x</a> </li>
+                        <li> <a href="/tag/gdscript?page=1">GDScript</a> </li>
                     </ul>
                 </div>
 

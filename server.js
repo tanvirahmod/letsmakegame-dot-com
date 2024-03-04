@@ -80,10 +80,10 @@ app.get('/sitemap.xml', async function (req, res, next) {
     let ext = ""
     check.forEach(element => {
         // console.log(element.id)
-        ext = ext + "<url>\n <loc>https://blog.sobdartho.com/" + element.tag + "/" + element.url+"</loc>\n</url>\n"
+        ext = ext + "<url>\n <loc>https://letsmakegame.com/" + element.tag + "/" + element.url+"</loc>\n</url>\n"
     });
   
-    let xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "<url>\n <loc>https://blog.sobdartho.com</loc>\n</url>\n" + ext + '</urlset>'
+    let xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "<url>\n <loc>https://letsmakegame.com</loc>\n</url>\n" + ext + '</urlset>'
     // console.log(xml_content)
 
     res.set('Content-Type', 'text/xml')
